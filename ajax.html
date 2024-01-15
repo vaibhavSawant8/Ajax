@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetching data with less code</title>
+    
+</head>
+<body>
+    <h1>Data Fetch uisng jquery cdn link</h1>
+
+    <button id="ajax">Jquery Load</button>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+
+$(document).ready(function(){
+    //document is  ready
+    $('#ajax').click(function(){
+        //btn click
+        $.get("data.json", function(){
+            console.log("jquery");
+            console.log(data);
+        })
+    })
+
+})
+</script>
+</html>

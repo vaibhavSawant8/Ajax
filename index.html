@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>  
+
+</head>
+<body>
+    <h1>welcome to home page</h1>
+    <p>we are learning ajax</p>
+    <!-- //synchronus example -->
+    <!-- <a href="about.html">About Page</a> --> 
+
+    <!-- //Asynchrous example or ajax -->
+    <a href="about1.html">About1 Page</a>
+    <br>
+    <br>
+    <button id="loaddata" onclick="loadAboutInformation()">Load Data</button>
+
+    <div id="vaibhav" class="container">
+
+    </div>
+    <button id="ajax">jquery Load</button>
+
+        
+    <div id="ajax" class="container">
+
+    </div>
+</body>
+
+<script>
+    
+    function loadAboutInformation(){
+        //call to ajax
+        //about1.html
+
+        var request= new XMLHttpRequest();
+
+        request.open("GET", "about1.html");
+        // request.open("GET", "data.json");
+
+        request.onreadystatechange=function(){
+            //call whenevr state changes
+            if(this.readyState==4 && this.status==200)
+            {
+                // let ob=JSON.parse(this.responseText)  //fetch from json
+                // console.log(ob);
+                //complete and successfully
+                console.log(this.responseText);
+                document.getElementById('vaibhav').innerHTML=this.responseText;
+            }
+        };
+
+        request.send();
+    }
+    
+$(document).ready(function(){
+    //document is  ready
+    $('#ajax').click(function(data){
+        //btn click
+        $.get("data.json", function(){
+            console.log("jquery")
+            console.log(data);
+        })
+    })
+
+})
+
+</script>
+</html>
